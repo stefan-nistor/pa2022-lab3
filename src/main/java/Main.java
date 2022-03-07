@@ -33,7 +33,13 @@ public class Main {
 
         System.out.println(network.getNodes().toString());
 
+        // print network nodes without their cost map
         network.getNodes().forEach(node -> System.out.println(node.getName()));
+
+        // print network nodes with their cost map
+        network.getNodes().forEach(
+                node -> node.getCost().forEach((key, value) -> System.out.println(node.getName() + "--" + key.getName() + ' ' + value))
+        );
 
     }
 }
