@@ -1,0 +1,1 @@
+Made an object-oriented model of the problem guided by resources given at the laboratory.
