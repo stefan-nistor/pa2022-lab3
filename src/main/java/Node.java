@@ -1,9 +1,12 @@
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class Node{
+public abstract class Node implements Comparable<Node>{
 
     private String name;
+    private String macAddress;
     private Map<Node, Integer> cost = new HashMap<>();
 
     public Node(){
@@ -35,12 +38,29 @@ public class Node{
         this.name = name;
     }
 
+    public void setMacAddress(String macAddress) {
+        this.macAddress = macAddress;
+    }
+
+    public String getMacAddress() {
+        return macAddress;
+    }
+
     @Override
     public String toString() {
         return "Node{" +
                 "name='" + name + '\'' +
                 ", cost=" + cost +
+                ", MAC=" + macAddress +
                 '}';
+    }
+
+    @Override
+    public int compareTo(@NotNull Node other) {
+        if(name == null || other.name == null)
+            throw new NullPointerException();
+
+        return this.name.compareTo(other.name);
     }
 
 }

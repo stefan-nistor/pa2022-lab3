@@ -1,3 +1,8 @@
 public interface Storage {
-    Integer getStorageCapacity();
+
+    enum Unit {
+        BYTE, KILOBYTE, MEGABYTE, GIGABYTE
+    }
+
+    Integer getStorageCapacity(Unit unit);
 }
